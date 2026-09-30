@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:poi
 .hero-title h1{font-size:clamp(29px,9.65vw,56px);font-weight:600;line-height:1.05;letter-spacing:-.02em;margin:0;text-shadow:0 3px 18px #0003;white-space:nowrap}
 .hero-title>p{font-size:clamp(22px,7.2vw,39px);color:var(--yellow);line-height:1.1;margin:3px 0 0 28%;letter-spacing:-.045em;white-space:nowrap}
 .card-content{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding-left:20px;min-height:0;overflow:hidden}
-.text-zone{position:relative;z-index:2;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#ffe10066 transparent;overscroll-behavior:contain;touch-action:pan-y;scroll-behavior:smooth;padding-block:18px 10px;padding-right:2px}
+.text-zone{position:relative;z-index:2;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#ffe10066 transparent;overscroll-behavior:contain;touch-action:pan-y;-webkit-overflow-scrolling:touch;scroll-behavior:auto;padding-block:18px 10px;padding-right:2px}
 .panel{min-height:100%;display:flex;flex-direction:column;justify-content:center;padding-block:12px;overflow-wrap:anywhere}
 .panel h2{margin:0 0 19px;font-weight:600;font-style:italic;font-size:clamp(19px,5.4vw,26px);line-height:1.15;letter-spacing:-.045em;text-shadow:0 2px 10px #0004}
 .eyebrow{font-size:8px;line-height:1.6;letter-spacing:.035em;margin:0 0 21px;color:#ffffffcb}
@@ -129,7 +129,7 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
           <nav class="contacts-list" id="works" aria-label="Работы и контакты Анны">
             <a class="contact-link works-link" href="https://www.instagram.com/anya_pochanina/" target="_blank" rel="noopener noreferrer" data-link="instagram"><img src="data:image/webp;base64,UklGRsAEAABXRUJQVlA4WAoAAAAQAAAARwAARwAAQUxQSEEEAAABCkq0bZuWpJe2rf/DEf1SsFdWuMdfzbRt2/hqhZlolm3btqvSfmPE2/dc/BjZPu/diHDgNpIiuY6xj3p77gl868uQcH5ZZMHqrXsOH4/GE0kiftweP8xbVy+IlOWHhmgLRVo/OesaSGBbIiEdJa3/uAZjg2JVWW3XfcOxnKmk+lc3BfnVKlh83U1J7CL5nqrp0jcvn248sW/b+lUrli1dQsQP7Kr12/adaDz98jeXqCpluyrx9Nmu2rwRrJ2RebXdZ8WTlaSM34ViormOseRa4SX/nk7pwFL+LGWjKfOx2nZC0XXcFzqGU4Q7WyhqgzquPeqYM3oUPFLpNSi4VTDzPxAzd+qO0z9+1wwfYBz8NxM9hk+UaUzhv25vfvR2Weeg5Ah9vtvYfsDzLvUu9pBnh3wKaoyZdQ79MLJXLfhkMPQoKOhSjqrhGfl3+wEPJ4QvoJ9GM3PuZfgoQp4CKOebEUqmNnR+CeVesB31U9GgN9GZfr1GfOu5mQ/fY/AyKwjvk7SeX/eGoZwHrnj+vQ2KeAVKKqXueVqu/7zfXGmCuf2ZmR989ex/Twtf+jPUHReARqmJ3b5SuibCg4RmspAmMN+zGpyQsa/7iuEZsvqiYJVnK9gnMeENV3T+y9fZnqd2EyT2gy2ePWAbbUCPi24+Xpc5zGHrB4/fFErpHkDbDnZ7DoP1tLkuevdeJnKfLxQzh7YBHPIcx7eW/qn8idrG0qWOa0N/zCKtBseoj2gFaZ+wH+RIMqgd69lLWkl9OeJgGWXyH+D9MY40Yz7ADh5QllOtLgGWUhqwvd7tKOQebNj1lGUg7kmCJZQu8AQr5UnQSVkKEmqGf63Tv2rBV8MIS0CgJvMifO3T1WRg12F9VP/6Yqia4EsoKt+Mu/F35yjmDXB339F3zpi8yYU+cJPhX0EhtWrqjD4Qd4En1Tyl/P1X/D3W6/8e6xR+j3r94YMxcmOF/jBJoT9o9qv2QTKDOzT6lXb/HCfpn+1C/5yp0j+V+/kcF/PefZT7Ax/NVurnBrYvT9RnDXPYBvVPaG5fNLZ31Gbzwpdv+PaC9vYuBdvf11S3vzrzwIQuxXlAPC2dB/Tmk7mK8wlBMp/ozkt7f6HxnrCkNnpe0p7fptR34EjBX3TUTZEXRs5vZubJu+72Ax7mqIScJ03Ot0qk8y234rydGj2ghUEEnM0yjpr/GyTrkXgqJIT1iGx9VGpemWx9xIXCeq3I+HrtL3zdBQrrxzKzyv+Srx85XVzPxnLNyYsprWe5klhfd9fljTSxvq7rIdbXFZKSFvlELn/7ypmm6P7tG1avXE4t+P1g+crVG7bbaNOZV769TFW50GHZLkX/P1xbxPJU/ZoKvwSOSjLbrGm2VXkJXNxi9v+i5mLWSCjS8vH/JgQftzSEHN0MDuWXRuav2rL70LFoLJ5ICvHjbI8d2r1l1fxIaX5osHPLCwMAVlA4IFgAAADQBACdASpIAEgAPikSiEKhoSETNAAYAoS0hDgAAC5b/FR9hCISurvkzbYYEpftAAD+s9v//yb///kz7//8lwigr///xwUWP//qoIBAvX//+OC5X3zzIAAA" width="24" height="24" alt=""><span>Instagram<small>Посмотреть работы</small></span></a>
             <a class="contact-link" href="https://t.me/anya_pochanina" target="_blank" rel="noopener noreferrer" data-link="telegram"><img src="data:image/webp;base64,UklGRrQCAABXRUJQVlA4WAoAAAAQAAAARwAARwAAQUxQSCsCAAABkARJtmlb/fy+bdu2bdu2bdu2bdu2bds2e3DuPXvtvYdvEhETgJCocepN3Toxk3UBhRa+IckPWe1K1OUsvS6xyL/o8g90edqaWG1P0b0t2aa/pOpBGyLW2/eH6vPNSzX8HkX7Ghaq7PqvFK5jVIJulyif26Ccc95R45eEpoSpuvsPtT4IY0bcLteo/PDSf3dHYGLm6a+p/HN0lFAP3S3UF1xh2y+qnykAlPjurq+umB0uUvD7kLBA1ld0X0NPugkvKHkmD4CMj+n+XzYNAaXWf6fkn1HhAOR5SsUPscWiND9N2ZulAKDIa6peDxRKPvQhhedHB4CyH6m8HZI++Zd8ovCz2nDW/E71SQJhah78T+n1CeFs9puCbZRCtb1G8ZdNfeDs+JeSxVSi7qX8hqTw2JuiP1OojKb4h1Y+cPoMp+yT8CpTxI5mhEffSRQ+6aMSY/VvkV/DQ8Nj4HxKL4V65uHnfildLAzP4dZQvJ8A4J+22eKbv128GxgenqPvoXx1EWeoDK1WP3bcG50YXpOco/y/rGLOiPnq1skdHt7T3KbGdzG1qMa6TZ1XAwyaQq2bYG7QLT2jDfK/oKexQWihJ79JPn1/aPiSwCQg7zm5u6HMQviRv6QOwfgCp4WWmoewQ3+IDLUAyHtCookVCD3gm1ohO4Ccx1W+JbIFoQZ8c3czyBog9zlXi2Fz+Cn/XZSzCqh428uRIMsQdchLx73UsD9Wo4Vb+8VFCEkAVlA4IGIAAAAQBgCdASpIAEgAPiUOhUIhho+/AAYAkS0gAqQAGTcBHmCRFctGfYMByhaNPWcID1V3VKLPlEKF/AAA/v7ur3zbf//9IPTP/9u2sf/27YEj//BvVP/4msXP/hri/+1wAAAAAA==" width="24" height="24" alt=""><span>Telegram</span></a>
-            <a class="contact-link" href="https://wa.me/79198476959" target="_blank" rel="noopener noreferrer" data-link="whatsapp"><img src="data:image/webp;base64,UklGRkYFAABXRUJQVlA4WAoAAAAQAAAARwAARwAAQUxQSK8EAAABoAXbtmm7Gtc2Ytu2bdu2bdtObmzbtm3bybV1MD/OXGvvtR++I2IC8J/p4BWcMXM6P5d/lEeJHstOP/kSFhMb+evN1S2jaqX9R/i32PLBTFrDzg3NY7Tiy76RzvEnWroZqOz+ZFL5pLubQbJvSiHV9xoYwa7fHzKgdWt6ZRkOkHTKuxNLR3Rp2aJdvxm7HkbJEH2sr6j8W5KMPdGvkDskHTI1DfksQaljlbSIIvH7CTmho2/rcxYBUYiLfl2SSfh1sC/0rn5ORPvc9eqQQrxpRVootO/0RUB7XfSpn0j8x3pQnHGfgELs9Cjwl/jzmaHcfryZozE6eD8gfrsHjNghkUuto20F8ZucYMyWiQx9Squlrpk74AyjdjQxtEWD53Ni7/vCuBM5S225kcSGF4CBHQ4xdM9FJugH1xPiovP2TA5ShAw/GOokM5bYM/aiQfFE9CBYEbpwj11EXh+ZpBIQdiZ2nSrHKww1ErUmdguEmUK5pEKKUNPCHBUdZZKLiqaScI0q+6tMXDYufSRzCkKnR6LITIrQgaH+XBti24kyxohooCq/n8wpbh0TGiwqbJbYpwqbmb+BNo5PmOPQ5aSy1gxVtskUw4yUyBAtMVJZtnhmkE1lYqtKON4XPfNT5vScWWvTmYnNLIFpgtDiUH+YOW8znvnsIZMngesJAy5gnjkCWMI8tJfBVq6zEYYzXzwBrGcuQzpvLPM+0AA9mD8BALYyZ+UwnaH1BujAhAcD2MKc0+D1lLH2UNeFCQ0CEMLc0IBKyTYUX1tZP+anL4DZzEsnDRjPUHh1VZOYd64ABjF/ArQ47GMourVEmwt3VpfXtI65YwegEWMqrAV+txgyzXTj2liIyLQzv4bLzCEAKJhqQ+01IdNzhuhWVZsMv4mNnuom4/2dmW3j/Y1ZoQ3Zn3Fk2lMe2Eni0z4SpcxMWxucZp47a0Om6xyR+fIZkh0rMYpsk/MxYxlTSR3gu12gdZfI7irz0pkpbbaheXrAbmisLjNEBZKYlWBdXjBffPQASlzUIbGgaC6xtTlMZ6iXPnDs/lbTNAiDfjEfPAT5EpnXnvoAvkOey610FE0kdjbEhxgaoRfg3mjbD8HbLhBnCWPic0tUNjOhuXQDENBw0dkH1ze09oHkdmK3QtLuMEMdVNjaQb61lUkoIIMJTGJuVRpz/yZ2OaQvMI8cjeR3j9jvaaXSRjDLYGD3Y8S3h3QjYhsbyPMA8Zshv4iJTGectGeJf+ov5/CAuQTDln1B/N9CkM+ZwEwSeJXPocZ5RCzxcbWgsQvZWisBcC7YZ88nCh3to6DaNRImNIPWrcxn7yytVj9LJvZ1/wB97CodMJMwqhG0ur1jfl2NJumviyu4acrS+7KFxJ8rQXNxE6Oj9dW6bqXSudkBcPLL3WDqxWiSvZQd2oeQSmvE+wfXr9158TOJ5JNmukHHY0r0vlEJevr90mD9sO2wWdHb3i7QtTrJ/j45sownUGl3nIIn/X2g83RBzM05dYIgzDPxYaouP7fXd4XedteJKOVZSOus0OhYbNjhD0ky1tCbixoGQmHWmC/7+hZyhr4euWv3mLgkJGTFzMEtSgZDcbqK3vhfCQBWUDggcAAAAJAIAJ0BKkgASAA+JQyFQiGGj98ABgCRLSEOAAWNj4A/gH4AfoBT/owNZtqhP9KxneSOg9SDAOupGxeYEQTzLFtUOEHuKnVXGQHQ1j+AAP7ydbfbwk8uRz/EBJ8fkX6Bh2fhph8/b+wbX2/yl9v7AAA=" width="24" height="24" alt=""></a>
+            <a class="contact-link" href="https://wa.me/79198476959" target="_blank" rel="noopener noreferrer" data-link="whatsapp"><img src="data:image/webp;base64,UklGRkYFAABXRUJQVlA4WAoAAAAQAAAARwAARwAAQUxQSK8EAAABoAXbtmm7Gtc2Ytu2bdu2bdtObmzbtm3bybV1MD/OXGvvtR++I2IC8J/p4BWcMXM6P5d/lEeJHstOP/kSFhMb+evN1S2jaqX9R/i32PLBTFrDzg3NY7Tiy76RzvEnWroZqOz+ZFL5pLubQbJvSiHV9xoYwa7fHzKgdWt6ZRkOkHTKuxNLR3Rp2aJdvxm7HkbJEH2sr6j8W5KMPdGvkDskHTI1DfksQaljlbSIIvH7CTmho2/rcxYBUYiLfl2SSfh1sC/0rn5ORPvc9eqQQrxpRVootO/0RUB7XfSpn0j8x3pQnHGfgELs9Cjwl/jzmaHcfryZozE6eD8gfrsHjNghkUuto20F8ZucYMyWiQx9Squlrpk74AyjdjQxtEWD53Ni7/vCuBM5S225kcSGF4CBHQ4xdM9FJugH1xPiovP2TA5ShAw/GOokM5bYM/aiQfFE9CBYEbpwj11EXh+ZpBIQdiZ2nSrHKww1ErUmdguEmUK5pEKKUNPCHBUdZZKLiqaScI0q+6tMXDYufSRzCkKnR6LITIrQgaH+XBti24kyxohooCq/n8wpbh0TGiwqbJbYpwqbmb+BNo5PmOPQ5aSy1gxVtskUw4yUyBAtMVJZtnhmkE1lYqtKON4XPfNT5vScWWvTmYnNLIFpgtDiUH+YOW8znvnsIZMngesJAy5gnjkCWMI8tJfBVq6zEYYzXzwBrGcuQzpvLPM+0AA9mD8BALYyZ+UwnaH1BujAhAcD2MKc0+D1lLH2UNeFCQ0CEMLc0IBKyTYUX1tZP+anL4DZzEsnDRjPUHh1VZOYd64ABjF/ArQ47GMourVEmwt3VpfXtI65YwegEWMqrAV+txgyzXTj2liIyLQzv4bLzCEAKJhqQ+01IdNzhuhWVZsMv4mNnuom4/2dmW3j/Y1ZoQ3Zn3Fk2lMe2Eni0z4SpcxMWxucZp47a0Om6xyR+fIZkh0rMYpsk/MxYxlTSR3gu12gdZfI7irz0pkpbbaheXrAbmisLjNEBZKYlWBdXjBffPQASlzUIbGgaC6xtTlMZ6iXPnDs/lbTNAiDfjEfPAT5EpnXnvoAvkOey610FE0kdjbEhxgaoRfg3mjbD8HbLhBnCWPic0tUNjOhuXQDENBw0dkH1ze09oHkdmK3QtLuMEMdVNjaQb61lUkoIIMJTGJuVRpz/yZ2OaQvMI8cjeR3j9jvaaXSRjDLYGD3Y8S3h3QjYhsbyPMA8Zshv4iJTGectGeJf+ov5/CAuQTDln1B/N9CkM+ZwEwSeJXPocZ5RCzxcbWgsQvZWisBcC7YZ88nCh3to6DaNRImNIPWrcxn7yytVj9LJvZ1/wB97CodMJMwqhG0ur1jfl2NJumviyu4acrS+7KFxJ8rQXNxE6Oj9dW6bqXSudkBcPLL3WDqxWiSvZQd2oeQSmvE+wfXr9158TOJ5JNmukHHY0r0vlEJevr90mD9sO2wWdHb3i7QtTrJ/j45sownUGl3nIIn/X2g83RBzM05dYIgzDPxYaouP7fXd4XedteJKOVZSOus0OhYbNjhD0ky1tCbixoGQmHWmC/7+hZyhr4euWv3mLgkJGTFzMEtSgZDcbqK3vhfCQBWUDggcAAAAJAIAJ0BKkgASAA+JQyFQiGGj98ABgCRLSEOAAWNj4A/gH4AfoBT/owNZtqhP9KxneSOg9SDAOupGxeYEQTzLFtUOEHuKnVXGQHQ1j+AAP7ydbfbwk8uRz/EBJ8fkX6Bh2fhph8/b+wbX2/yl9v7AAA=" width="24" height="24" alt=""><span>WhatsApp</span></a>
             <a class="contact-link" href="https://max.ru/u/f9LHodD0cOJkM_Bp0koirmldXLwX1CtXaEk2B60dm2QkYewI6q15ZnhVsyM" target="_blank" rel="noopener noreferrer" data-link="max"><img src="data:image/webp;base64,UklGRqoDAABXRUJQVlA4WAoAAAAQAAAARwAARwAAQUxQSDIDAAABoAVJtmnb6nfWubZt27Zt27Zt27Zt27Zt69gaH3vtNcacM95/REwAlHvES5kpW7aMyWPD4DgF2s7af/vtT28/P6/vLy9vHFo5uQlp2mx9G07sX8f7ZNYreq0df0jad38dT21itr9Naq83tfRodJfUny2tQba9pGXInPiq2v8kXe8UVhJrMWn8r6WC5CdI64jhYmluke5ThFLdJf0niiS4Qib2F7B2kpGhdXgjydAfWTnlgk2hc9GdxXtE5g51NoFUhvj5hSjxzuYkq6/Y5y3dy+VMnz5HmY7LHkVK0Q4na0n4XofEcBi91AovofAy7nIGyngNiAVutnWRInTE3SISfVAQknU/ioQVtUv2U+RiCshmviVBq+06keTtpJBOfl3iVzKbkxLfskI+7WsBauOS1lcgsjFUlg0S2OvSkgR3QO0MgR+JAKwS8M+hKNEHHlUArPsCa6F6iMBwILUPL7yEspR/eTuBMsS/66kMO3n3LLQTmAL17XnfkmKcQFUN8oSxAnJiOc83rQYJv7HCS2Mn70V0DTwfs6g6jvHOQcebvDo4xduhw393eLVxmrdMhxiveFVxgjdbh5RerLDi2M+bpkO5KJZvVqw3YgyxPyXEDN5cDaxbvOse6M1bqUHZCN46oBZvtwb7id8LyBnKuqiuagQvojAQ9yPrVQxVCZ4Q/3UsAKdYvmlUrSPBFQAwnUUVFI0lyaou9XlD1YwhyRexXNL7s46piLucREfB1brD8kplU72GQNlbJPovjQ0Wsai3S9eQyM0FGQXWhZLsHNg34j2Lg9gzoogo+HDbTJ420bJ0OBJEwn/SuEnnx6ITE++TW79HB9csWXvkSQDJD4dbj+s8ve/Fdoc5RgWXgcN6Ro2C0/R+Bu2yHFn3zbmREM7XG/M0PZh9TXmcGdzKhtxID3aWICN2JwY//hcDQsZYELQe6veoEmRvMMJPRarym5YAwpedhfdH3WdKQrbkhfgRR+/rA0g03VfMe31RKBzrwGdhStjmXuUlEXprWCYoTXHX7vWM7HCYsd+Jb5FOQt8fGJDfguqE3dbtWT+ifFxwExduNmzu6s0bl0/rUydXXPwvAlZQOCBSAAAAkAQAnQEqSABIAD4pEIZCIaELh6IADAFCWkAAGJ3oLRvu67/+BB30gmsh9agAAP76dz//5N///yZ9//+S4Rti3///HBXD//6qCAAS3/fWEgAAAA==" width="24" height="24" alt=""><span>MAX</span></a>
           </nav>
           <div class="direct-contacts"><a href="tel:+79198476959">+7 919 847 69 59</a><a href="mailto:a.pochanina@gmail.com">a.pochanina@gmail.com</a></div>
@@ -215,23 +215,36 @@ textZone.addEventListener('wheel', event => {
   showStep(currentStep + Math.sign(event.deltaY));
 }, {passive: true});
 let touchStartY = null;
+let touchStartTime = 0;
 textZone.addEventListener('touchstart', event => {
-  if (event.touches.length !== 1 || event.target.closest('a,button,input')) {touchStartY = null; return;}
+  if (event.touches.length !== 1 || event.target.closest('a,button,input')) {
+    touchStartY = null;
+    return;
+  }
   touchStartY = event.touches[0].clientY;
+  touchStartTime = Date.now();
 }, {passive: true});
 textZone.addEventListener('touchend', event => {
   if (touchStartY === null) return;
 
   const delta = touchStartY - event.changedTouches[0].clientY;
+  const duration = Date.now() - touchStartTime;
   touchStartY = null;
-  if (Math.abs(delta) <= 40) return;
+  if (Math.abs(delta) <= 45) return;
 
-  const maxScroll = textZone.scrollHeight - textZone.clientHeight;
-  const atTop = textZone.scrollTop <= 2;
-  const atBottom = textZone.scrollTop >= maxScroll - 2;
+  const maxScroll = Math.max(0, textZone.scrollHeight - textZone.clientHeight);
+  const atTop = textZone.scrollTop <= 24;
+  const atBottom = textZone.scrollTop >= maxScroll - 24;
+  const fastSwipe = duration < 500 && Math.abs(delta) > 75;
 
-  // Свайп вверх внизу блока → следующий блок.
-  // Свайп вниз вверху блока → предыдущий блок.
+  // Быстрый свайп переключает блок сразу — не нужно тащить палец
+  // до самого края текста. Медленный свайп продолжает обычную прокрутку.
+  if (fastSwipe) {
+    showStep(currentStep + Math.sign(delta));
+    return;
+  }
+
+  // Для медленного свайпа переключаемся только у края текста.
   if (delta > 0 && atBottom) showStep(currentStep + 1);
   if (delta < 0 && atTop) showStep(currentStep - 1);
 }, {passive: true});
