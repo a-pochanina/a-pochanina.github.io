@@ -95,6 +95,33 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
 @media(max-height:620px){.hero-title{padding-top:20px;padding-bottom:13px}.hero-title h1{font-size:clamp(27px,7vw,53px)}.hero-title>p{font-size:clamp(20px,4.6vw,31px);margin-left:23%}.card-footer{padding-block:8px}.text-zone{padding-block:0}.panel{justify-content:flex-start;padding-block:15px}.eyebrow{margin-bottom:13px}.greeting{font-size:clamp(12px,2.6vw,19px)}.panel h2{font-size:clamp(18px,3vw,27px);margin-bottom:14px}.scroll-down{margin-top:14px}.quick-link{margin-top:12px}.about-copy{font-size:14px}.portrait-open img{object-fit:contain;object-position:right bottom}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 
+
+@media(max-width:599px){
+  .text-zone{
+    overflow-y:auto;
+    overflow-x:hidden;
+    overscroll-behavior:contain;
+    touch-action:pan-y;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:none;
+  }
+  .panel{
+    display:block !important;
+    min-height:auto;
+    padding-block:18px 26px;
+  }
+  .panel + .panel{
+    padding-top:26px;
+    border-top:1px solid #ffffff25;
+  }
+  .scroll-down{
+    display:none;
+  }
+  .card-footer{
+    display:none !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -166,6 +193,7 @@ const nextStep = document.getElementById('next-step');
 let currentStep = 0;
 const stepNames = ['Знакомство', 'Об Анне', 'Чистота и безопасность', 'Работы и контакты'];
 function showStep(index, announce = true) {
+  if (window.matchMedia('(max-width: 599px)').matches) return;
   const next = Math.max(0, Math.min(index, panels.length - 1));
   const focusWasInPanel = panels.some(panel => panel.contains(document.activeElement));
   currentStep = next;
