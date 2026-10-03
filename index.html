@@ -347,6 +347,16 @@ document.getElementById('copy-button').addEventListener('click', async () => {
   }
 });
 
+  document.querySelector('.quick-link').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const contacts = document.querySelector('#contacts');
+
+    contacts.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
+});
 </script>
 </body>
 </html>
