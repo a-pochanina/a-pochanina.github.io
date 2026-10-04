@@ -129,7 +129,7 @@ body {
   -ms-overflow-style:none;
   overscroll-behavior:contain;
   -webkit-overflow-scrolling:touch;
-  scroll-behavior:smooth;
+  scroll-behavior:auto;
   scroll-snap-type:y mandatory;
   scroll-snap-stop:always;
   scroll-padding:0;
@@ -151,9 +151,9 @@ body {
   scroll-snap-stop:always;
   overflow:hidden;
   opacity:.55;
-  transform:scale(.96) translateY(18px);
+  transform:scale(.94) translateY(24px);
   transform-origin:center center;
-  transition:opacity .45s ease, transform .55s cubic-bezier(.2,.75,.25,1);
+  transition:opacity .24s ease, transform .28s cubic-bezier(.16,.8,.25,1);
 }
 
 .panel.is-active {
@@ -294,15 +294,51 @@ function clampStep(index) {
   return Math.max(0, Math.min(Number(index) || 0, panels.length - 1));
 }
 
-function goToStep(index, smooth = true) {
+let scrollAnimation = null;
+
+function animateScrollTo(target, duration = (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 280)) {
+  if (scrollAnimation) cancelAnimationFrame(scrollAnimation);
+
+  const start = textZone.scrollTop;
+  const distance = target - start;
+
+  if (Math.abs(distance) < 1) {
+    textZone.scrollTop = target;
+    return;
+  }
+
+  const started = performance.now();
+
+  function frame(now) {
+    const progress = Math.min(1, (now - started) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    textZone.scrollTop = start + distance * eased;
+
+    if (progress < 1) {
+      scrollAnimation = requestAnimationFrame(frame);
+    } else {
+      scrollAnimation = null;
+      textZone.scrollTop = target;
+    }
+  }
+
+  scrollAnimation = requestAnimationFrame(frame);
+}
+
+function goToStep(index, animate = true) {
   const next = clampStep(index);
   currentStep = next;
 
   const top = panels[next].offsetTop;
-  textZone.scrollTo({
-    top,
-    behavior: smooth ? 'smooth' : 'auto'
-  });
+
+  if (animate) {
+    animateScrollTo(top, 280);
+  } else {
+    if (scrollAnimation) cancelAnimationFrame(scrollAnimation);
+    scrollAnimation = null;
+    textZone.scrollTop = top;
+  }
 
   card.dataset.step = String(next);
   card.style.setProperty('--step', String(next));
@@ -360,21 +396,21 @@ card.addEventListener('wheel', event => {
 
   event.preventDefault();
   wheelLocked = true;
-  goToStep(next);
+  goToStep(next, true);
 
   window.setTimeout(() => {
     wheelLocked = false;
-  }, 650);
+  }, 330);
 }, { passive:false });
 
 /* Кнопка «Листай дальше». */
-introNext?.addEventListener('click', () => goToStep(currentStep + 1));
+introNext?.addEventListener('click', () => goToStep(currentStep + 1, true));
 
 /* Ссылки вида data-go="3". */
 document.querySelectorAll('[data-go]').forEach(control => {
   control.addEventListener('click', event => {
     event.preventDefault();
-    goToStep(control.dataset.go);
+    goToStep(control.dataset.go, true);
   });
 });
 
@@ -385,7 +421,7 @@ textZone.addEventListener('keydown', event => {
 
   event.preventDefault();
   const forward = ['ArrowDown','PageDown',' '].includes(event.key);
-  goToStep(currentStep + (forward ? 1 : -1));
+  goToStep(currentStep + (forward ? 1 : -1), true);
 });
 
 /* Touch специально НЕ перехватываем.
