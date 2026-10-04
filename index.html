@@ -35,8 +35,8 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:poi
 .hero-title h1{font-size:clamp(29px,9.65vw,56px);font-weight:600;line-height:1.05;letter-spacing:-.02em;margin:0;text-shadow:0 3px 18px #0003;white-space:nowrap}
 .hero-title>p{font-size:clamp(22px,7.2vw,39px);color:var(--yellow);line-height:1.1;margin:3px 0 0 28%;letter-spacing:-.045em;white-space:nowrap}
 .card-content{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding-left:20px;min-height:0;overflow:hidden}
-.text-zone{position:relative;z-index:2;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin;scrollbar-color:#ffe10066 transparent;overscroll-behavior:contain;touch-action:pan-y;-webkit-overflow-scrolling:touch;scroll-behavior:auto;padding-block:18px 10px;padding-right:2px}
-.panel{min-height:100%;display:flex;flex-direction:column;justify-content:center;padding-block:12px;overflow-wrap:anywhere}
+.text-zone{position:relative;z-index:2;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain;touch-action:pan-y;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:0 2px 0 0;scroll-snap-type:y mandatory} .text-zone::-webkit-scrollbar{display:none}
+.panel{min-height:100%;height:auto;display:flex;flex-direction:column;justify-content:center;padding:28px 0;overflow-wrap:anywhere;scroll-snap-align:start;scroll-snap-stop:always;opacity:.38;transform:scale(.94) translateY(28px);transition:opacity .45s ease,transform .55s cubic-bezier(.22,.61,.36,1)} .panel.is-active{opacity:1;transform:scale(1) translateY(0)}
 .panel h2{margin:0 0 19px;font-weight:600;font-style:italic;font-size:clamp(19px,5.4vw,26px);line-height:1.15;letter-spacing:-.045em;text-shadow:0 2px 10px #0004}
 .eyebrow{font-size:8px;line-height:1.6;letter-spacing:.035em;margin:0 0 21px;color:#ffffffcb}
 .greeting{font-size:clamp(13px,3.7vw,17px);line-height:1.35;font-weight:600;font-style:italic;letter-spacing:-.055em;text-shadow:0 2px 8px #0004;margin:0 0 18px}
@@ -68,7 +68,7 @@ a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:poi
 .direct-contacts a{display:flex;align-items:center;min-height:33px;width:fit-content;overflow-wrap:anywhere;max-width:100%}
 .direct-contacts a:hover{color:var(--yellow)}
 .share-button{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-top:10px;border:0;border-top:1px solid #ffffff40;background:transparent;color:var(--yellow);padding:13px 0 5px;min-height:44px;font-size:9px;line-height:1.4;text-align:left;width:100%}
-.card-footer{z-index:4;position:relative;display:flex;align-items:center;gap:14px;padding:12px 20px max(14px,env(safe-area-inset-bottom));background:linear-gradient(90deg,#242b2633 0%,#242b2617 45%,transparent 60%)}
+.card-footer{display:none!important;z-index:4;position:relative;display:flex;align-items:center;gap:14px;padding:12px 20px max(14px,env(safe-area-inset-bottom));background:linear-gradient(90deg,#242b2633 0%,#242b2617 45%,transparent 60%)}
 .step-nav{display:flex;gap:0}
 .step-dot{width:38px;height:44px;display:grid;place-items:center;padding:0;background:transparent;border:0}
 .step-dot span{display:block;width:5px;height:5px;border:1px solid #ffffff9e;border-radius:50%;transition:background .2s,transform .2s}
@@ -89,16 +89,7 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
 .copy-button{margin-top:15px;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px;min-height:48px;border:1px solid #ffe100a0;border-radius:999px;background:#ffe10010;color:var(--yellow);font-size:11px}
 .share-dialog .copy-help{color:var(--yellow);min-height:22px;margin:9px 0 0;font-size:10px}
 .toast{position:fixed;bottom:max(24px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:20;background:#242b25;color:white;padding:13px 18px;max-width:calc(100% - 32px);font-size:11px;line-height:1.5;opacity:0;pointer-events:none;transition:opacity .2s;border-radius:999px}.toast.show{opacity:1}
-
-.panel p {
-    margin-bottom: 20px;
-}
-
-.panel p:last-child {
-    margin-bottom: 0;
-}
-
-@media(min-width:600px){.portrait{width:calc(56% - 45.16px)}.hero-title{padding:35px 36px 22px}.hero-title h1{font-size:clamp(50px,8.5vw,76px)}.hero-title>p{font-size:clamp(34px,5.7vw,51px);margin-left:28%}.card-content{padding-left:36px;gap:25px;grid-template-columns:44% minmax(0,1fr)}.text-zone{padding-block:16px}.eyebrow{font-size:10px}.greeting{font-size:clamp(20px,2.7vw,27px);line-height:1.2}.panel h2{font-size:clamp(28px,3.4vw,37px);margin-bottom:23px}.about-copy{font-size:16px;line-height:1.4}.care-note{font-size:11px}.quick-link{font-size:12px}.scroll-down{font-size:13px;gap:16px;margin-top:32px}.scroll-circle{width:56px;height:56px;flex-basis:56px}.portrait-open img{object-fit:contain;object-position:right bottom}.contact-link{font-size:15px;gap:12px;padding:10px 14px;min-height:50px}.contact-link img{width:26px;height:26px;flex-basis:26px}.contact-link small{font-size:10px}.contacts-panel h2{font-size:31px}.contacts-list{max-width:345px}.direct-contacts{font-size:12px}.direct-contacts a{min-height:37px}.share-button{font-size:11px;max-width:345px}.card-footer{padding:12px 36px 16px}.step-dot{width:38px;height:38px}.step-count{font-size:11px}.step-arrows button{width:42px;height:42px}.portrait figcaption{right:23px}.portrait figcaption button{width:40px;height:40px;font-size:24px}}
+@media(min-width:600px){.portrait{width:calc(56% - 45.16px)}.hero-title{padding:35px 36px 22px}.hero-title h1{font-size:clamp(50px,8.5vw,76px)}.hero-title>p{font-size:clamp(34px,5.7vw,51px);margin-left:28%}.card-content{padding-left:36px;gap:25px;grid-template-columns:44% minmax(0,1fr)}.text-zone{padding:0}.eyebrow{font-size:10px}.greeting{font-size:clamp(20px,2.7vw,27px);line-height:1.2}.panel h2{font-size:clamp(28px,3.4vw,37px);margin-bottom:23px}.about-copy{font-size:16px;line-height:1.4}.care-note{font-size:11px}.quick-link{font-size:12px}.scroll-down{font-size:13px;gap:16px;margin-top:32px}.scroll-circle{width:56px;height:56px;flex-basis:56px}.portrait-open img{object-fit:contain;object-position:right bottom}.contact-link{font-size:15px;gap:12px;padding:10px 14px;min-height:50px}.contact-link img{width:26px;height:26px;flex-basis:26px}.contact-link small{font-size:10px}.contacts-panel h2{font-size:31px}.contacts-list{max-width:345px}.direct-contacts{font-size:12px}.direct-contacts a{min-height:37px}.share-button{font-size:11px;max-width:345px}.card-footer{padding:12px 36px 16px}.step-dot{width:38px;height:38px}.step-count{font-size:11px}.step-arrows button{width:42px;height:42px}.portrait figcaption{right:23px}.portrait figcaption button{width:40px;height:40px;font-size:24px}}
 @media(min-width:900px) and (min-height:620px){.portrait{width:calc(57% - 64.2px)}body{height:100svh}.card{width:min(1080px,calc(100vw - 44px));height:min(820px,calc(100svh - 44px));border-radius:24px;box-shadow:0 0 0 1px #0005,0 26px 88px #0005}.hero-title{padding:43px 60px 19px}.hero-title h1{font-size:clamp(63px,7.2vw,81px);line-height:.95}.hero-title>p{font-size:48px;margin-left:27%;line-height:1}.card-content{padding-left:60px;gap:30px;grid-template-columns:43% minmax(0,1fr)}.text-zone{padding-block:13px 18px}.greeting{font-size:26px;line-height:1.25;max-width:22ch}.panel h2{font-size:35px}.about-copy{font-size:17px;line-height:1.4;max-width:37ch}.about-panel .eyebrow{margin-bottom:15px}.about-panel h2{margin-bottom:15px;font-size:30px}.about-panel .about-copy{font-size:15px;margin-bottom:12px}.portrait-open img{object-fit:contain;object-position:right bottom}.portrait figcaption{right:32px}.card-footer{padding:10px 60px 13px}.glow-left{width:550px;height:550px;left:-430px;top:-390px}.glow-right{width:500px;height:500px;right:-260px;bottom:-200px}}
 @media(max-width:359px){.portrait{width:calc(52% - 16.32px)}.hero-title{padding:25px 16px 18px}.hero-title h1{font-size:9.6vw}.hero-title>p{font-size:7vw;margin-left:27%}.card-content{padding-left:16px;gap:8px;grid-template-columns:48% minmax(0,1fr)}.greeting{font-size:12px;line-height:1.4}.eyebrow{font-size:7px;letter-spacing:0}.panel h2{font-size:18px}.contact-link{font-size:10px;padding-inline:8px;gap:6px}.contact-link img{width:19px;height:19px;flex-basis:19px}.contact-link small{font-size:7px}.contact-link .link-arrow{font-size:12px}.direct-contacts{font-size:8px}.card-footer{padding-inline:16px}.portrait figcaption{right:5px}.portrait figcaption button{width:34px;height:34px;font-size:20px}}
 @media(max-height:620px){.hero-title{padding-top:20px;padding-bottom:13px}.hero-title h1{font-size:clamp(27px,7vw,53px)}.hero-title>p{font-size:clamp(20px,4.6vw,31px);margin-left:23%}.card-footer{padding-block:8px}.text-zone{padding-block:0}.panel{justify-content:flex-start;padding-block:15px}.eyebrow{margin-bottom:13px}.greeting{font-size:clamp(12px,2.6vw,19px)}.panel h2{font-size:clamp(18px,3vw,27px);margin-bottom:14px}.scroll-down{margin-top:14px}.quick-link{margin-top:12px}.about-copy{font-size:14px}.portrait-open img{object-fit:contain;object-position:right bottom}}
@@ -106,31 +97,14 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
 
 
 @media(max-width:599px){
-  .text-zone{
-    overflow-y:auto;
-    overflow-x:hidden;
-    overscroll-behavior:contain;
-    touch-action:pan-y;
-    -webkit-overflow-scrolling:touch;
-    scroll-snap-type:none;
-  }
-  .panel{
-    display:block !important;
-    min-height:auto;
-    padding-block:18px 26px;
-  }
-  .panel + .panel{
-    padding-top:26px;
-    border-top:1px solid #ffffff25;
-  }
-  .scroll-down{
-    display:none;
-  }
-  .card-footer{
-    display:none !important;
-  }
+  .text-zone{padding:0;scroll-snap-type:y mandatory}
+  .panel{height:auto;min-height:100%;padding:22px 0}
+  .panel.is-active{transform:scale(1) translateY(0)}
+  .panel + .panel{border-top:0}
+  .about-copy{margin-bottom:18px}
+  .about-copy:last-child{margin-bottom:0}
+  .scroll-down{margin-top:22px}
 }
-
 </style>
 </head>
 <body>
@@ -150,7 +124,7 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
           <p class="greeting">Ты на моей страничке, а значит, впереди у тебя особенное событие.</p>
           <p class="greeting">И, кажется, у тебя хороший вкус</p>
           <button class="scroll-down" type="button" id="intro-next"><span class="scroll-circle" aria-hidden="true">↓</span><span>Листай<br>дальше</span></button>
-          <a class="quick-link" href="#contacts" data-go="2">Работы и связь</a>
+          <a class="quick-link" href="#contacts" data-go="3">Работы и связь</a>
         </section>
         <section class="panel about-panel" id="about" aria-label="Об Анне" data-panel="1">
           <p class="about-copy">Я Анна — визажист, стилист по волосам и бровист.</p>
@@ -158,10 +132,10 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
           <p class="about-copy">В моей профессиональной биографии есть телевидение, ведущие и публичные персоны. Но звёздный статус для записи не требуется.</p>
           <p class="about-copy">Люблю подчёркивать твою индивидуальность. Чтобы в зеркале оставаться собой — и нравиться себе.</p>
         </section>
-        <section class="panel about-panel" id="about" aria-label="Об Анне" data-panel="1">
+        <section class="panel about-panel safety-panel" id="safety" aria-label="Чистота и безопасность" data-panel="2">
           <p class="about-copy">Особое внимание я уделяю чистоте и безопасности: работаю только чистыми, продезинфицированными кистями, инструментами и качественными профессиональными материалами.</p>
         </section>
-        <section class="panel contacts-panel" id="contacts" aria-label="Работы и контакты" data-panel="2">
+        <section class="panel contacts-panel" id="contacts" aria-label="Работы и контакты" data-panel="3">
           <nav class="contacts-list" id="works" aria-label="Работы и контакты Анны">
             <a class="contact-link works-link" href="https://www.instagram.com/anya_pochanina/" target="_blank" rel="noopener noreferrer" data-link="instagram"><img src="data:image/webp;base64,UklGRsAEAABXRUJQVlA4WAoAAAAQAAAARwAARwAAQUxQSEEEAAABCkq0bZuWpJe2rf/DEf1SsFdWuMdfzbRt2/hqhZlolm3btqvSfmPE2/dc/BjZPu/diHDgNpIiuY6xj3p77gl868uQcH5ZZMHqrXsOH4/GE0kiftweP8xbVy+IlOWHhmgLRVo/OesaSGBbIiEdJa3/uAZjg2JVWW3XfcOxnKmk+lc3BfnVKlh83U1J7CL5nqrp0jcvn248sW/b+lUrli1dQsQP7Kr12/adaDz98jeXqCpluyrx9Nmu2rwRrJ2RebXdZ8WTlaSM34ViormOseRa4SX/nk7pwFL+LGWjKfOx2nZC0XXcFzqGU4Q7WyhqgzquPeqYM3oUPFLpNSi4VTDzPxAzd+qO0z9+1wwfYBz8NxM9hk+UaUzhv25vfvR2Weeg5Ah9vtvYfsDzLvUu9pBnh3wKaoyZdQ79MLJXLfhkMPQoKOhSjqrhGfl3+wEPJ4QvoJ9GM3PuZfgoQp4CKOebEUqmNnR+CeVesB31U9GgN9GZfr1GfOu5mQ/fY/AyKwjvk7SeX/eGoZwHrnj+vQ2KeAVKKqXueVqu/7zfXGmCuf2ZmR989ex/Twtf+jPUHReARqmJ3b5SuibCg4RmspAmMN+zGpyQsa/7iuEZsvqiYJVnK9gnMeENV3T+y9fZnqd2EyT2gy2ePWAbbUCPi24+Xpc5zGHrB4/fFErpHkDbDnZ7DoP1tLkuevdeJnKfLxQzh7YBHPIcx7eW/qn8idrG0qWOa0N/zCKtBseoj2gFaZ+wH+RIMqgd69lLWkl9OeJgGWXyH+D9MY40Yz7ADh5QllOtLgGWUhqwvd7tKOQebNj1lGUg7kmCJZQu8AQr5UnQSVkKEmqGf63Tv2rBV8MIS0CgJvMifO3T1WRg12F9VP/6Yqia4EsoKt+Mu/F35yjmDXB339F3zpi8yYU+cJPhX0EhtWrqjD4Qd4En1Tyl/P1X/D3W6/8e6xR+j3r94YMxcmOF/jBJoT9o9qv2QTKDOzT6lXb/HCfpn+1C/5yp0j+V+/kcF/PefZT7Ax/NVurnBrYvT9RnDXPYBvVPaG5fNLZ31Gbzwpdv+PaC9vYuBdvf11S3vzrzwIQuxXlAPC2dB/Tmk7mK8wlBMp/ozkt7f6HxnrCkNnpe0p7fptR34EjBX3TUTZEXRs5vZubJu+72Ax7mqIScJ03Ot0qk8y234rydGj2ghUEEnM0yjpr/GyTrkXgqJIT1iGx9VGpemWx9xIXCeq3I+HrtL3zdBQrrxzKzyv+Srx85XVzPxnLNyYsprWe5klhfd9fljTSxvq7rIdbXFZKSFvlELn/7ypmm6P7tG1avXE4t+P1g+crVG7bbaNOZV769TFW50GHZLkX/P1xbxPJU/ZoKvwSOSjLbrGm2VXkJXNxi9v+i5mLWSCjS8vH/JgQftzSEHN0MDuWXRuav2rL70LFoLJ5ICvHjbI8d2r1l1fxIaX5osHPLCwMAVlA4IFgAAADQBACdASpIAEgAPikSiEKhoSETNAAYAoS0hDgAAC5b/FR9hCISurvkzbYYEpftAAD+s9v//yb///kz7//8lwigr///xwUWP//qoIBAvX//+OC5X3zzIAAA" width="24" height="24" alt=""><span>Instagram<small>Посмотреть работы</small></span></a>
             <a class="contact-link" href="https://t.me/anya_pochanina" target="_blank" rel="noopener noreferrer" data-link="telegram"><img src="data:image/webp;base64,UklGRrQCAABXRUJQVlA4WAoAAAAQAAAARwAARwAAQUxQSCsCAAABkARJtmlb/fy+bdu2bdu2bdu2bdu2bds2e3DuPXvtvYdvEhETgJCocepN3Toxk3UBhRa+IckPWe1K1OUsvS6xyL/o8g90edqaWG1P0b0t2aa/pOpBGyLW2/eH6vPNSzX8HkX7Ghaq7PqvFK5jVIJulyif26Ccc95R45eEpoSpuvsPtT4IY0bcLteo/PDSf3dHYGLm6a+p/HN0lFAP3S3UF1xh2y+qnykAlPjurq+umB0uUvD7kLBA1ld0X0NPugkvKHkmD4CMj+n+XzYNAaXWf6fkn1HhAOR5SsUPscWiND9N2ZulAKDIa6peDxRKPvQhhedHB4CyH6m8HZI++Zd8ovCz2nDW/E71SQJhah78T+n1CeFs9puCbZRCtb1G8ZdNfeDs+JeSxVSi7qX8hqTw2JuiP1OojKb4h1Y+cPoMp+yT8CpTxI5mhEffSRQ+6aMSY/VvkV/DQ8Nj4HxKL4V65uHnfildLAzP4dZQvJ8A4J+22eKbv128GxgenqPvoXx1EWeoDK1WP3bcG50YXpOco/y/rGLOiPnq1skdHt7T3KbGdzG1qMa6TZ1XAwyaQq2bYG7QLT2jDfK/oKexQWihJ79JPn1/aPiSwCQg7zm5u6HMQviRv6QOwfgCp4WWmoewQ3+IDLUAyHtCookVCD3gm1ohO4Ccx1W+JbIFoQZ8c3czyBog9zlXi2Fz+Cn/XZSzCqh428uRIMsQdchLx73UsD9Wo4Vb+8VFCEkAVlA4IGIAAAAQBgCdASpIAEgAPiUOhUIhho+/AAYAkS0gAqQAGTcBHmCRFctGfYMByhaNPWcID1V3VKLPlEKF/AAA/v7ur3zbf//9IPTP/9u2sf/27YEj//BvVP/4msXP/hri/+1wAAAAAA==" width="24" height="24" alt=""><span>Telegram</span></a>
@@ -201,91 +175,99 @@ const previousStep = document.getElementById('previous-step');
 const nextStep = document.getElementById('next-step');
 let currentStep = 0;
 const stepNames = ['Знакомство', 'Об Анне', 'Чистота и безопасность', 'Работы и контакты'];
-function showStep(index, announce = true) {
-  if (window.matchMedia('(max-width: 599px)').matches) return;
-  const next = Math.max(0, Math.min(index, panels.length - 1));
-  const focusWasInPanel = panels.some(panel => panel.contains(document.activeElement));
-  currentStep = next;
-  panels.forEach((panel, i) => { panel.hidden = i !== next; });
-  document.querySelectorAll('.step-dot').forEach((button, i) => {
-    if (i === next) button.setAttribute('aria-current', 'step');
-    else button.removeAttribute('aria-current');
-  });
-  card.dataset.step = String(next);
-  card.style.setProperty('--step', next);
-  document.getElementById('step-count').textContent = `0${next + 1} / 04`;
-  previousStep.disabled = next === 0;
-  nextStep.disabled = next === panels.length - 1;
-  textZone.scrollTop = 0;
-  if (announce) document.getElementById('step-announcement').textContent = `${stepNames[next]}, ${next + 1} из 3`;
-  if (focusWasInPanel) textZone.focus({preventScroll: true});
+function updateActivePanel(index) {
+  currentStep = Math.max(0, Math.min(index, panels.length - 1));
+  panels.forEach((panel, i) => panel.classList.toggle('is-active', i === currentStep));
+  card.dataset.step = String(currentStep);
+  card.style.setProperty('--step', currentStep);
+  const announcement = document.getElementById('step-announcement');
+  if (announcement) announcement.textContent = `${stepNames[currentStep]}, ${currentStep + 1} из 4`;
 }
+
+const observer = new IntersectionObserver(entries => {
+  const visible = entries
+    .filter(entry => entry.isIntersecting)
+    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  if (!visible) return;
+  updateActivePanel(panels.indexOf(visible.target));
+}, {root: textZone, threshold: [0.35, 0.6, 0.8]});
+
+panels.forEach(panel => observer.observe(panel));
+updateActivePanel(0);
+
+// Ссылки внутри визитки теперь прокручивают именно к нужной секции.
 document.querySelectorAll('[data-go]').forEach(control => control.addEventListener('click', event => {
   event.preventDefault();
-  showStep(Number(control.dataset.go));
+  const index = Number(control.dataset.go);
+  if (panels[index]) panels[index].scrollIntoView({behavior:'smooth', block:'start'});
 }));
-document.getElementById('intro-next').addEventListener('click', () => showStep(currentStep + 1));
-previousStep.addEventListener('click', () => showStep(currentStep - 1));
-nextStep.addEventListener('click', () => showStep(currentStep + 1));
-textZone.addEventListener('keydown', event => {
-  if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp'].includes(event.key)) return;
-  if (event.target.closest('a,button,input')) return;
-  const canScroll = textZone.scrollHeight > textZone.clientHeight + 2;
-  if (canScroll && !event.key.startsWith('Page')) return;
-  event.preventDefault();
-  showStep(currentStep + (['ArrowDown','PageDown'].includes(event.key) ? 1 : -1));
+
+document.getElementById('intro-next').addEventListener('click', () => {
+  if (panels[1]) panels[1].scrollIntoView({behavior:'smooth', block:'start'});
 });
-let wheelTime = 0;
+
+// Колесо мыши: один шаг = одна секция.
+let wheelLocked = false;
 textZone.addEventListener('wheel', event => {
-  if (Math.abs(event.deltaY) < 15) return;
-  if (Date.now() - wheelTime < 550) return;
+  if (Math.abs(event.deltaY) < 8 || wheelLocked) {
+    event.preventDefault();
+    return;
+  }
+  const direction = event.deltaY > 0 ? 1 : -1;
+  const next = Math.max(0, Math.min(currentStep + direction, panels.length - 1));
+  if (next === currentStep) return;
+  event.preventDefault();
+  wheelLocked = true;
+  currentStep = next;
+  panels[next].scrollIntoView({behavior:'smooth', block:'start'});
+  window.setTimeout(() => { wheelLocked = false; }, 650);
+}, {passive:false});
 
-  const maxScroll = textZone.scrollHeight - textZone.clientHeight;
-  const atTop = textZone.scrollTop <= 2;
-  const atBottom = textZone.scrollTop >= maxScroll - 2;
-
-  // Если внутри блока ещё есть куда скроллить — даём браузеру прокрутить текст.
-  // Переход к следующему/предыдущему блоку происходит только на краю.
-  if ((event.deltaY > 0 && !atBottom) || (event.deltaY < 0 && !atTop)) return;
-
-  wheelTime = Date.now();
-  showStep(currentStep + Math.sign(event.deltaY));
-}, {passive: true});
+// На телефоне свайпом переключаются именно 4 секции.
 let touchStartY = null;
 let touchStartTime = 0;
+let touchLocked = false;
 textZone.addEventListener('touchstart', event => {
-  if (event.touches.length !== 1 || event.target.closest('a,button,input')) {
+  if (event.touches.length !== 1 || event.target.closest('a,button,input') || touchLocked) {
     touchStartY = null;
     return;
   }
   touchStartY = event.touches[0].clientY;
   touchStartTime = Date.now();
-}, {passive: true});
+}, {passive:true});
 textZone.addEventListener('touchend', event => {
-  if (touchStartY === null) return;
-
+  if (touchStartY === null || touchLocked) return;
   const delta = touchStartY - event.changedTouches[0].clientY;
   const duration = Date.now() - touchStartTime;
   touchStartY = null;
+  if (Math.abs(delta) < 60 || duration > 800) return;
+  const direction = delta > 0 ? 1 : -1;
+  const next = Math.max(0, Math.min(currentStep + direction, panels.length - 1));
+  if (next === currentStep) return;
+  touchLocked = true;
+  event.preventDefault();
+  currentStep = next;
+  panels[next].scrollIntoView({behavior:'smooth', block:'start'});
+  window.setTimeout(() => { touchLocked = false; }, 700);
+}, {passive:false});
 
-  // Небольшое движение пальца считаем обычным скроллом текста.
-  if (Math.abs(delta) < 60) return;
-
-  // Свайп вверх/вниз переключает экран сразу, без необходимости
-  // сначала докручивать внутренний текст до самого края.
-  // Очень медленное движение оставляем обычным скроллом.
-  if (duration <= 700) {
-    showStep(currentStep + (delta > 0 ? 1 : -1));
-  }
-}, {passive: true});
-const initialStep = location.hash === '#about' ? 1 : ['#contacts','#works'].includes(location.hash) ? 2 : 0;
-showStep(initialStep, false);
-document.getElementById('card-footer').hidden = false;
-window.addEventListener('hashchange', () => {
-  if (location.hash === '#about') showStep(1);
-  if (['#contacts','#works'].includes(location.hash)) showStep(2);
-  if (['#hello','#top'].includes(location.hash)) showStep(0);
+// Клавиатура для ПК.
+textZone.addEventListener('keydown', event => {
+  if (!['ArrowDown','ArrowUp','PageDown','PageUp',' '].includes(event.key)) return;
+  if (event.target.closest('a,button,input')) return;
+  event.preventDefault();
+  const forward = ['ArrowDown','PageDown',' '].includes(event.key);
+  const next = Math.max(0, Math.min(currentStep + (forward ? 1 : -1), panels.length - 1));
+  if (panels[next]) panels[next].scrollIntoView({behavior:'smooth', block:'start'});
 });
+
+// Хэши остаются рабочими.
+function goToHash() {
+  if (['#contacts','#works'].includes(location.hash)) panels[3]?.scrollIntoView({behavior:'smooth', block:'start'});
+  else if (location.hash === '#about') panels[1]?.scrollIntoView({behavior:'smooth', block:'start'});
+  else if (['#hello','#top'].includes(location.hash)) panels[0]?.scrollIntoView({behavior:'smooth', block:'start'});
+}
+window.addEventListener('hashchange', goToHash);
 const photoDialog = document.getElementById('photo-dialog');
 const shareDialog = document.getElementById('share-dialog');
 const shareUrl = document.getElementById('share-url');
