@@ -23,6 +23,7 @@ body{display:grid;place-items:center;background:var(--frame);color:var(--white);
 body:has(dialog[open]){overflow:hidden}
 a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible,.text-zone:focus-visible,input:focus-visible{outline:2px solid var(--yellow);outline-offset:4px}
 [hidden]{display:none!important}
+.paragraph-scroll-mode [hidden]{display:block!important}
 ::selection{background:var(--yellow);color:#222}
 .skip-link{position:fixed;top:-80px;left:15px;z-index:30;padding:12px;background:#222}.skip-link:focus{top:12px}
 .card{--step:0;position:relative;isolation:isolate;display:grid;grid-template-rows:auto minmax(0,1fr) auto;width:min(100%,1080px);height:100svh;min-height:400px;overflow:hidden;background:radial-gradient(circle at 87% 72%,#f9dd0022,transparent 42%),linear-gradient(115deg,#77796f 0%,#94968a 50%,#bdbfb0 100%)}
@@ -89,15 +90,6 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
 .copy-button{margin-top:15px;width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px;min-height:48px;border:1px solid #ffe100a0;border-radius:999px;background:#ffe10010;color:var(--yellow);font-size:11px}
 .share-dialog .copy-help{color:var(--yellow);min-height:22px;margin:9px 0 0;font-size:10px}
 .toast{position:fixed;bottom:max(24px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:20;background:#242b25;color:white;padding:13px 18px;max-width:calc(100% - 32px);font-size:11px;line-height:1.5;opacity:0;pointer-events:none;transition:opacity .2s;border-radius:999px}.toast.show{opacity:1}
-
-.panel p {
-    margin-bottom: 20px;
-}
-
-.panel p:last-child {
-    margin-bottom: 0;
-}
-    
 @media(min-width:600px){.portrait{width:calc(56% - 45.16px)}.hero-title{padding:35px 36px 22px}.hero-title h1{font-size:clamp(50px,8.5vw,76px)}.hero-title>p{font-size:clamp(34px,5.7vw,51px);margin-left:28%}.card-content{padding-left:36px;gap:25px;grid-template-columns:44% minmax(0,1fr)}.text-zone{padding-block:16px}.eyebrow{font-size:10px}.greeting{font-size:clamp(20px,2.7vw,27px);line-height:1.2}.panel h2{font-size:clamp(28px,3.4vw,37px);margin-bottom:23px}.about-copy{font-size:16px;line-height:1.4}.care-note{font-size:11px}.quick-link{font-size:12px}.scroll-down{font-size:13px;gap:16px;margin-top:32px}.scroll-circle{width:56px;height:56px;flex-basis:56px}.portrait-open img{object-fit:contain;object-position:right bottom}.contact-link{font-size:15px;gap:12px;padding:10px 14px;min-height:50px}.contact-link img{width:26px;height:26px;flex-basis:26px}.contact-link small{font-size:10px}.contacts-panel h2{font-size:31px}.contacts-list{max-width:345px}.direct-contacts{font-size:12px}.direct-contacts a{min-height:37px}.share-button{font-size:11px;max-width:345px}.card-footer{padding:12px 36px 16px}.step-dot{width:38px;height:38px}.step-count{font-size:11px}.step-arrows button{width:42px;height:42px}.portrait figcaption{right:23px}.portrait figcaption button{width:40px;height:40px;font-size:24px}}
 @media(min-width:900px) and (min-height:620px){.portrait{width:calc(57% - 64.2px)}body{height:100svh}.card{width:min(1080px,calc(100vw - 44px));height:min(820px,calc(100svh - 44px));border-radius:24px;box-shadow:0 0 0 1px #0005,0 26px 88px #0005}.hero-title{padding:43px 60px 19px}.hero-title h1{font-size:clamp(63px,7.2vw,81px);line-height:.95}.hero-title>p{font-size:48px;margin-left:27%;line-height:1}.card-content{padding-left:60px;gap:30px;grid-template-columns:43% minmax(0,1fr)}.text-zone{padding-block:13px 18px}.greeting{font-size:26px;line-height:1.25;max-width:22ch}.panel h2{font-size:35px}.about-copy{font-size:17px;line-height:1.4;max-width:37ch}.about-panel .eyebrow{margin-bottom:15px}.about-panel h2{margin-bottom:15px;font-size:30px}.about-panel .about-copy{font-size:15px;margin-bottom:12px}.portrait-open img{object-fit:contain;object-position:right bottom}.portrait figcaption{right:32px}.card-footer{padding:10px 60px 13px}.glow-left{width:550px;height:550px;left:-430px;top:-390px}.glow-right{width:500px;height:500px;right:-260px;bottom:-200px}}
 @media(max-width:359px){.portrait{width:calc(52% - 16.32px)}.hero-title{padding:25px 16px 18px}.hero-title h1{font-size:9.6vw}.hero-title>p{font-size:7vw;margin-left:27%}.card-content{padding-left:16px;gap:8px;grid-template-columns:48% minmax(0,1fr)}.greeting{font-size:12px;line-height:1.4}.eyebrow{font-size:7px;letter-spacing:0}.panel h2{font-size:18px}.contact-link{font-size:10px;padding-inline:8px;gap:6px}.contact-link img{width:19px;height:19px;flex-basis:19px}.contact-link small{font-size:7px}.contact-link .link-arrow{font-size:12px}.direct-contacts{font-size:8px}.card-footer{padding-inline:16px}.portrait figcaption{right:5px}.portrait figcaption button{width:34px;height:34px;font-size:20px}}
@@ -131,9 +123,81 @@ dialog{padding:0;border:0}dialog::backdrop{background:#171916eb}
   }
 }
 
+
+/* === Paragraph-by-paragraph scroll === */
+.text-zone{
+  overflow-y:auto;
+  overflow-x:hidden;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+  overscroll-behavior:contain;
+  touch-action:pan-y;
+  -webkit-overflow-scrolling:touch;
+}
+.text-zone::-webkit-scrollbar{display:none}
+
+.panel{
+  display:block !important;
+  min-height:auto !important;
+  padding-block:0 !important;
+  border:0 !important;
+}
+
+.panel > h2,
+.panel > p,
+.panel > .scroll-down,
+.panel > .quick-link,
+.contacts-list > *{
+  scroll-snap-align:start;
+}
+
+.panel > p,
+.panel > h2,
+.panel > .scroll-down,
+.panel > .quick-link,
+.contacts-list > *{
+  min-height:72vh;
+  box-sizing:border-box;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  margin:0;
+  padding:7vh 2vw;
+  opacity:.35;
+  transform:scale(.88) translateY(35px);
+  transition:opacity .35s ease, transform .35s ease;
+}
+
+.panel > h2{font-size:clamp(28px,5vw,52px)}
+.panel > p{font-size:clamp(16px,2vw,22px); line-height:1.65}
+.panel > .scroll-down,
+.panel > .quick-link{min-height:auto;}
+
+@media(max-width:599px){
+  .panel > p,
+  .panel > h2,
+  .panel > .scroll-down,
+  .panel > .quick-link,
+  .contacts-list > *{
+    min-height:78vh;
+    padding:8vh 5vw;
+  }
+  .panel > p{font-size:16px;line-height:1.65}
+  .panel > .scroll-down{display:none !important}
+  .panel > .quick-link{min-height:20vh}
+  .card-footer{display:none !important}
+}
+
+.paragraph-active{
+  opacity:1 !important;
+  transform:scale(1) translateY(0) !important;
+}
+
 </style>
 </head>
-<body>
+<body class="paragraph-scroll-mode">
   <a class="skip-link" href="#text-zone">К содержимому</a>
   <main class="card" id="card" aria-label="Сайт-визитка Анны Почаниной" data-step="0">
     <div class="glow glow-left" aria-hidden="true"></div>
@@ -236,21 +300,7 @@ textZone.addEventListener('keydown', event => {
   showStep(currentStep + (['ArrowDown','PageDown'].includes(event.key) ? 1 : -1));
 });
 let wheelTime = 0;
-textZone.addEventListener('wheel', event => {
-  if (Math.abs(event.deltaY) < 15) return;
-  if (Date.now() - wheelTime < 550) return;
-
-  const maxScroll = textZone.scrollHeight - textZone.clientHeight;
-  const atTop = textZone.scrollTop <= 2;
-  const atBottom = textZone.scrollTop >= maxScroll - 2;
-
-  // Если внутри блока ещё есть куда скроллить — даём браузеру прокрутить текст.
-  // Переход к следующему/предыдущему блоку происходит только на краю.
-  if ((event.deltaY > 0 && !atBottom) || (event.deltaY < 0 && !atTop)) return;
-
-  wheelTime = Date.now();
-  showStep(currentStep + Math.sign(event.deltaY));
-}, {passive: true});
+textZone.addEventListener('wheel', event => { return; }, {passive: true});
 let touchStartY = null;
 let touchStartTime = 0;
 textZone.addEventListener('touchstart', event => {
@@ -261,23 +311,7 @@ textZone.addEventListener('touchstart', event => {
   touchStartY = event.touches[0].clientY;
   touchStartTime = Date.now();
 }, {passive: true});
-textZone.addEventListener('touchend', event => {
-  if (touchStartY === null) return;
-
-  const delta = touchStartY - event.changedTouches[0].clientY;
-  const duration = Date.now() - touchStartTime;
-  touchStartY = null;
-
-  // Небольшое движение пальца считаем обычным скроллом текста.
-  if (Math.abs(delta) < 60) return;
-
-  // Свайп вверх/вниз переключает экран сразу, без необходимости
-  // сначала докручивать внутренний текст до самого края.
-  // Очень медленное движение оставляем обычным скроллом.
-  if (duration <= 700) {
-    showStep(currentStep + (delta > 0 ? 1 : -1));
-  }
-}, {passive: true});
+textZone.addEventListener('touchend', event => { return; }, {passive: true});
 const initialStep = location.hash === '#about' ? 1 : ['#contacts','#works'].includes(location.hash) ? 2 : 0;
 showStep(initialStep, false);
 document.getElementById('card-footer').hidden = false;
@@ -347,17 +381,37 @@ document.getElementById('copy-button').addEventListener('click', async () => {
   }
 });
 
-document.querySelector('.quick-link').addEventListener('click', function(event) {
-    event.preventDefault();
 
-    const contacts = document.querySelector('#contacts');
 
-    contacts.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+/* Paragraph scroll mode */
+(function(){
+  const zone = document.getElementById('text-zone');
+  if (!zone) return;
+
+  const items = [...zone.querySelectorAll('.panel > h2, .panel > p, .panel > .quick-link, .contacts-list > *')];
+  items.forEach((el, i) => {
+    el.classList.toggle('paragraph-active', i === 0);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('paragraph-active');
+      else entry.target.classList.remove('paragraph-active');
     });
-});
-  
+  }, {root: zone, threshold: 0.55});
+
+  items.forEach(el => observer.observe(el));
+
+  const quickLink = document.querySelector('.quick-link');
+  if (quickLink) {
+    quickLink.addEventListener('click', function(event){
+      event.preventDefault();
+      const contacts = document.getElementById('contacts');
+      if (contacts) contacts.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  }
+})();
+
 </script>
 </body>
 </html>
